@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jobbies_app/pages/sign_in_page.dart';
 import 'package:jobbies_app/theme.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -44,7 +45,7 @@ class OnboardingPage extends StatelessWidget {
                     fontWeight: FontWeight.w300,
                   ),
                 ),
-                SizedBox(height: 400),
+                const SizedBox(height: 400),
                 Center(
                   child: Container(
                     width: 400,
@@ -66,21 +67,28 @@ class OnboardingPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Center(
                   child: Container(
                     width: 400,
                     height: 45,
                     child: OutlinedButton(
                       style: OutlinedButton.styleFrom(
-                        side: BorderSide(
+                        side: const BorderSide(
                           color: Colors.white,
                         ),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignInPage(),
+                          ),
+                        );
+                      },
                       child: Text(
                         'Sign In',
                         style: whiteTextStyle.copyWith(
