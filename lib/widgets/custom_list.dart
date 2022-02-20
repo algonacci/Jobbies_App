@@ -6,11 +6,12 @@ class CustomList extends StatelessWidget {
   final String imageUrl;
   final String companyName;
 
-  CustomList({
+  const CustomList({
+    Key key,
     this.companyName,
     this.imageUrl,
     this.jobTitle,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class CustomList extends StatelessWidget {
           imageUrl,
           width: 45,
         ),
-        SizedBox(width: 25),
+        const SizedBox(width: 25),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +38,7 @@ class CustomList extends StatelessWidget {
                 companyName,
                 style: greyTextStyle,
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Divider(
                 color: greyColor,
                 thickness: 1,

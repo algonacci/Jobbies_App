@@ -5,6 +5,8 @@ import 'package:jobbies_app/theme.dart';
 import 'package:email_validator/email_validator.dart';
 
 class SignUpPage extends StatefulWidget {
+  const SignUpPage({Key key}) : super(key: key);
+
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
