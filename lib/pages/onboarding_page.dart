@@ -57,7 +57,14 @@ class OnboardingPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(25),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignInPage(),
+                          ),
+                        );
+                      },
                       child: Text(
                         'Get Started',
                         style: purpleTextStyle.copyWith(

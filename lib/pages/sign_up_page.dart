@@ -229,6 +229,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                   ),
+                  SizedBox(height: 50),
                 ],
               ),
             ),

@@ -7,6 +7,7 @@ class JobCard extends StatelessWidget {
   final String text;
 
   const JobCard({
+    Key key,
     this.imageUrl,
     this.text,
   });
