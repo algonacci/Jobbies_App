@@ -30,7 +30,7 @@ class SecondHomePage extends StatelessWidget {
                       child: SizedBox(
                         height: 270,
                         width: double.infinity,
-                        child: Image.asset(
+                        child: Image.network(
                           imageUrl,
                           fit: BoxFit.cover,
                         ),

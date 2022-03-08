@@ -28,7 +28,7 @@ class CustomList extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
+          Image.network(
             imageUrl,
             width: 45,
           ),
