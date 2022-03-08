@@ -27,7 +27,7 @@ class SecondHomePage extends StatelessWidget {
                         bottomLeft: Radius.circular(20),
                         bottomRight: Radius.circular(20),
                       ),
-                      child: Container(
+                      child: SizedBox(
                         height: 270,
                         width: double.infinity,
                         child: Image.asset(
@@ -79,20 +79,20 @@ class SecondHomePage extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
                       Column(
-                        children: [
-                          const CustomList(
+                        children: const [
+                          CustomList(
                             companyName: 'Google',
                             jobTitle: 'Front-End Developer',
                             imageUrl: 'assets/icon_google.png',
                           ),
-                          const SizedBox(height: 16),
-                          const CustomList(
+                          SizedBox(height: 16),
+                          CustomList(
                             companyName: 'Instagram',
                             jobTitle: 'UI Designer',
                             imageUrl: 'assets/icon_instagram.png',
                           ),
-                          const SizedBox(height: 16),
-                          const CustomList(
+                          SizedBox(height: 16),
+                          CustomList(
                             companyName: 'Facebook',
                             jobTitle: 'Data Scientist',
                             imageUrl: 'assets/icon_facebook.png',
@@ -108,20 +108,20 @@ class SecondHomePage extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
                       Column(
-                        children: [
-                          const CustomList(
+                        children: const [
+                          CustomList(
                             companyName: 'Google',
                             jobTitle: 'Front-End Developer',
                             imageUrl: 'assets/icon_google.png',
                           ),
-                          const SizedBox(height: 16),
-                          const CustomList(
+                          SizedBox(height: 16),
+                          CustomList(
                             companyName: 'Instagram',
                             jobTitle: 'UI Designer',
                             imageUrl: 'assets/icon_instagram.png',
                           ),
-                          const SizedBox(height: 16),
-                          const CustomList(
+                          SizedBox(height: 16),
+                          CustomList(
                             companyName: 'Facebook',
                             jobTitle: 'Data Scientist',
                             imageUrl: 'assets/icon_facebook.png',

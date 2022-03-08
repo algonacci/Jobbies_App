@@ -47,7 +47,7 @@ class OnboardingPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 400),
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     width: 400,
                     height: 45,
                     child: TextButton(
@@ -61,7 +61,7 @@ class OnboardingPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SignInPage(),
+                            builder: (context) => const SignInPage(),
                           ),
                         );
                       },
@@ -76,7 +76,7 @@ class OnboardingPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Center(
-                  child: Container(
+                  child: SizedBox(
                     width: 400,
                     height: 45,
                     child: OutlinedButton(

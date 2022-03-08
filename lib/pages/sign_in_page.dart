@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:jobbies_app/models/user_model.dart';
+import 'package:jobbies_app/pages/home_page.dart';
 import 'package:jobbies_app/pages/sign_up_page.dart';
+import 'package:jobbies_app/providers/auth_provider.dart';
+import 'package:jobbies_app/providers/user_provider.dart';
 import 'package:jobbies_app/theme.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:provider/provider.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key key}) : super(key: key);
@@ -12,11 +17,25 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   bool isEmailValid = true;
+  bool isLoading = false;
 
   TextEditingController emailController = TextEditingController(text: '');
+  TextEditingController passwordController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
+    var authProvider = Provider.of<AuthProvider>(context);
+    var userProvider = Provider.of<UserProvider>(context);
+
+    void showError(String message) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: redColor,
+          content: Text(message),
+        ),
+      );
+    }
+
     return MaterialApp(
       home: SafeArea(
         bottom: false,
@@ -111,6 +130,7 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                       const SizedBox(height: 8),
                       TextFormField(
+                        controller: passwordController,
                         obscureText: true,
                         decoration: InputDecoration(
                           fillColor: const Color(0xffF1F0F5),
@@ -131,24 +151,58 @@ class _SignInPageState extends State<SignInPage> {
                     ],
                   ),
                   const SizedBox(height: 30),
-                  Container(
+                  SizedBox(
                     width: 400,
                     height: 50,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Sign In',
-                        style: whiteTextStyle.copyWith(
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      style: TextButton.styleFrom(
-                        backgroundColor: primaryColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                      ),
-                    ),
+                    child: isLoading
+                        ? const Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        : TextButton(
+                            onPressed: () async {
+                              if (emailController.text.isEmpty ||
+                                  passwordController.text.isEmpty) {
+                                showError('Semua fields harus diisi');
+                              } else {
+                                setState(() {
+                                  isLoading = true;
+                                });
+
+                                UserModel user = await authProvider.login(
+                                  emailController.text,
+                                  passwordController.text,
+                                );
+
+                                setState(() {
+                                  isLoading = false;
+                                });
+
+                                if (user == null) {
+                                  showError('Email atau password salah');
+                                } else {
+                                  userProvider.user = user;
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const HomePage(),
+                                    ),
+                                  );
+                                }
+                              }
+                            },
+                            child: Text(
+                              'Sign In',
+                              style: whiteTextStyle.copyWith(
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            style: TextButton.styleFrom(
+                              backgroundColor: primaryColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                            ),
+                          ),
                   ),
                   const SizedBox(height: 20),
                   Center(
@@ -157,7 +211,7 @@ class _SignInPageState extends State<SignInPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SignUpPage(),
+                            builder: (context) => const SignUpPage(),
                           ),
                         );
                       },
@@ -167,7 +221,7 @@ class _SignInPageState extends State<SignInPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 50),
                 ],
               ),
             ),

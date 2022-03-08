@@ -57,32 +57,32 @@ class HomePage extends StatelessWidget {
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [
+              children: const [
                 JobCard(
                   imageUrl: 'assets/card_category1.png',
                   text: 'Website Developer',
                 ),
-                const SizedBox(width: 16),
+                SizedBox(width: 16),
                 JobCard(
                   imageUrl: 'assets/card_category2.png',
                   text: 'Mobile Developer',
                 ),
-                const SizedBox(width: 16),
+                SizedBox(width: 16),
                 JobCard(
                   imageUrl: 'assets/card_category3.png',
                   text: 'App \nDesigner',
                 ),
-                const SizedBox(width: 16),
+                SizedBox(width: 16),
                 JobCard(
                   imageUrl: 'assets/card_category4.png',
                   text: 'Content Writer',
                 ),
-                const SizedBox(width: 16),
+                SizedBox(width: 16),
                 JobCard(
                   imageUrl: 'assets/card_category5.png',
                   text: 'Video Editor',
                 ),
-                const SizedBox(width: 16),
+                SizedBox(width: 16),
               ],
             ),
           ),
@@ -94,19 +94,19 @@ class HomePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 26),
-          CustomList(
+          const CustomList(
             companyName: 'Google',
             jobTitle: 'Front-End Developer',
             imageUrl: 'assets/icon_google.png',
           ),
           const SizedBox(height: 16),
-          CustomList(
+          const CustomList(
             companyName: 'Instagram',
             jobTitle: 'UI Designer',
             imageUrl: 'assets/icon_instagram.png',
           ),
           const SizedBox(height: 16),
-          CustomList(
+          const CustomList(
             companyName: 'Facebook',
             jobTitle: 'Data Scientist',
             imageUrl: 'assets/icon_facebook.png',
@@ -124,8 +124,8 @@ class HomePage extends StatelessWidget {
         currentIndex: 0,
         elevation: 0,
         iconSize: 24,
-        items: [
-          const BottomNavigationBarItem(
+        items: const [
+          BottomNavigationBarItem(
             icon: ImageIcon(
               AssetImage(
                 'assets/navbar1.png',
@@ -133,7 +133,7 @@ class HomePage extends StatelessWidget {
             ),
             label: '',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: ImageIcon(
               AssetImage(
                 'assets/navbar2.png',
@@ -141,7 +141,7 @@ class HomePage extends StatelessWidget {
             ),
             label: '',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: ImageIcon(
               AssetImage(
                 'assets/navbar3.png',
@@ -149,7 +149,7 @@ class HomePage extends StatelessWidget {
             ),
             label: '',
           ),
-          const BottomNavigationBarItem(
+          BottomNavigationBarItem(
             icon: ImageIcon(
               AssetImage(
                 'assets/navbar4.png',

@@ -14,7 +14,7 @@ class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
     Widget applyButton() {
-      return Container(
+      return SizedBox(
         width: 400,
         height: 50,
         child: TextButton(
@@ -38,7 +38,7 @@ class _DetailPageState extends State<DetailPage> {
     }
 
     Widget cancelApplyButton() {
-      return Container(
+      return SizedBox(
         width: 400,
         height: 50,
         child: TextButton(
